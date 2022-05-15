@@ -1,0 +1,77 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+void minimise(float  aray[][3],int ,int );
+void colum_sort1(float  aray[][3],int );
+void swap_rows(float  aray[][3],int  ,int );
+void colum_sort0(float  aray[][3],int  );
+void eliminate(float  aray[][3],int,int,int  );
+float  main() {
+    float  a[3][3]={{3,1,2},{1,2,3},{33,44,5}};
+    colum_sort0(a,0);
+    printf("Hello world\n");
+    minimise(a,0,0);
+    eliminate(a,0,1,0);
+    eliminate(a,0,2,0);
+    printf("---------------------\n");
+    colum_sort0(a,1);
+    minimise(a,1,1);
+    eliminate(a,1,2,1);
+    for (int i=0;i<3;i++){
+        for(int j=0;j<3;j++){
+            printf("%f ",a[i][j]);
+        }
+        printf("\n");
+    }
+    
+    printf("---------------------\n");
+   
+    
+    
+    return 0;
+}
+void colum_sort0(float  aray[][3],int  colum){
+    for (int  i=0;i<3;i++){
+        if(aray[0][colum]==0){
+            if(aray[1][colum]!=0){
+            swap_rows(aray,0,1);
+            continue;
+            }
+            else if(aray[2][colum]!=0){
+                swap_rows(aray,0,2);
+                continue;
+            }
+        }
+        if(aray[i+1][colum]>aray[i][colum]){
+    }
+}
+}
+void colum_sort1(float  aray[][3],int  colum){
+    if(aray[1][colum]==0){
+        swap_rows(aray,1,0);
+    }
+}
+void swap_rows(float  aray[][3],int  rowA,int  rowB){
+    for (int  i=0;i<3;i++){
+        int  temp=aray[rowA][i];
+        aray[rowA][i]=aray[rowB][i];
+        aray[rowB][i]=temp;
+        
+    }
+    }
+void minimise(float  aray[][3],int  row,int pivot_pos){
+    float  elcoef;
+    elcoef=aray[row][pivot_pos];
+    for (int  i=0;i<3;i++){
+        aray[row][i]=(float  ) (aray[row][i]/elcoef);
+    }}
+void eliminate(float  aray[][3],int   rowA,int  rowB,int  pivot_pos){
+float    multiplier;
+    multiplier=(aray[rowA][pivot_pos])/(float  )(aray[rowB][pivot_pos]);
+    for(int  i=0;i<3;i++){
+        aray[rowB][i]=(aray[rowB][i])*(float  )(multiplier);
+    }
+    for (int i=0;i<3;i++){
+         aray[rowB][i]= aray[rowB][i]- aray[rowA][i];
+         
+    }
+}
